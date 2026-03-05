@@ -1,11 +1,11 @@
+FROM maven:3.9-eclipse-temurin-11 AS build
+WORKDIR /app
+COPY pom.xml .
+COPY src ./src
+RUN mvn clean package -DskipTests
+
 FROM tomcat:10.1-jdk11
-
-# Remove default webapps
 RUN rm -rf /usr/local/tomcat/webapps/*
-
-# Copy the WAR file
-COPY target/profmash.war /usr/local/tomcat/webapps/ROOT.war
-
+COPY --from=build /app/target/profmash.war /usr/local/tomcat/webapps/ROOT.war
 EXPOSE 8080
-
 CMD ["catalina.sh", "run"]
