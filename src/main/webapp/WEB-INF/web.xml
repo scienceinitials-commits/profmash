@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <display-name>ProfMash</display-name>
+
+    <!-- Default servlet for static files (CSS, JS, images) -->
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/css/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/js/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/images/*</url-pattern>
+    </servlet-mapping>
+
+    <!-- Matchup Servlet -->
+    <servlet>
+        <servlet-name>MatchupServlet</servlet-name>
+        <servlet-class>com.profmash.servlet.MatchupServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MatchupServlet</servlet-name>
+        <url-pattern>/matchup</url-pattern>
+    </servlet-mapping>
+
+    <!-- Vote Servlet -->
+    <servlet>
+        <servlet-name>VoteServlet</servlet-name>
+        <servlet-class>com.profmash.servlet.VoteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VoteServlet</servlet-name>
+        <url-pattern>/vote</url-pattern>
+    </servlet-mapping>
+
+    <!-- Leaderboard Servlet -->
+    <servlet>
+        <servlet-name>LeaderboardServlet</servlet-name>
+        <servlet-class>com.profmash.servlet.LeaderboardServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LeaderboardServlet</servlet-name>
+        <url-pattern>/leaderboard</url-pattern>
+    </servlet-mapping>
+
+    <!-- Welcome page -->
+    <welcome-file-list>
+        <welcome-file>matchup</welcome-file>
+    </welcome-file-list>
+
+</web-app>
