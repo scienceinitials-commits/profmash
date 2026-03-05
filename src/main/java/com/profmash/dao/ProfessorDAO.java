@@ -55,7 +55,7 @@ public class ProfessorDAO {
     }
 
     private void addProf(int id, String name, String dept, String subject, String photo) {
-        professors.put(id, new Professor(id, name, dept, subject, "/profmash/images/professors/" + photo));
+        professors.put(id, new Professor(id, name, dept, subject, "/images/professors/" + photo));
     }
 
     private void loadSampleData() {
